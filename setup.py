@@ -8,7 +8,7 @@ setuptools.setup(
     name="breezo",
 
     # Version number (initial):
-    version="1.0.0",
+    version="1.0.2",
 
     # Application author details:
     author="nimeshmittal",
