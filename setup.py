@@ -8,7 +8,7 @@ setuptools.setup(
     name="breezo",
 
     # Version number (initial):
-    version="1.0.2",
+    version="1.0.4",
 
     # Application author details:
     author="nimeshmittal",
@@ -28,5 +28,6 @@ setuptools.setup(
 
     install_requires=[
         "requests",
+        "pandas"
     ],
 )

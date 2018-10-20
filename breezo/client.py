@@ -87,9 +87,9 @@ class ConfigClient:
         response = requests.request("GET", url)
 
         if response.ok:
-            self.properties = pd.DataFrame(response.json()['data']['props'])
+            self.properties = pd.DataFrame(response.json()['data'])
 
-            field_names = self.properties.field_name.unique().tolist()
+            field_names = self.properties.name.unique().tolist()
             final_properties = {}
             for field_name in field_names:
                 val = self.__evaluate_value(field_name, self.star, ip)
@@ -100,8 +100,8 @@ class ConfigClient:
         else:
             response.raise_for_status()
 
-    def get(self, field_name, tenant_name='*', default=None):
-        value = self.__evaluate_value(field_name, tenant_name)
+    def get(self, field_name, tenant_name='*', ip='*', default=None):
+        value = self.__evaluate_value(field_name, tenant_name, ip)
         if not value:
             return default
         else:
